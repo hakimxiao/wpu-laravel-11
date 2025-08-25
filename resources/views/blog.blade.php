@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Blog Article</title>
-    @vite('resources/css/app.css');
-</head>
-
-<body>
+<x-layout>
+    {{-- proses pengiriman dan pembacaan variabel dari route ke layout melalui route dan view --}}
+    <x-slot:title>{{ $title }}</x-slot:title>
     <section class="flex flex-col items-center justify-center">
         <h1 class="text-3xl font-semibold">Daily Arcticle</h1>
         <div>
@@ -46,6 +37,4 @@
             </div>
         </div>
     </section>
-</body>
-
-</html>
+</x-layout>

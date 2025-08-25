@@ -9,15 +9,10 @@
 - [Membuat component + class]: (php artisan make:component Navbar)
 - [Membuat component tanpa class]: (php artisan make:component Navbar --view)
 
+** LAYOUT 
+> Jika kita membuat element dengan nama layout maka diaakan di anggap sebagai layout
+- [Membuat layout with component method]: (php artisan make:component Layout)
 
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
 ## Learning Laravel
 
