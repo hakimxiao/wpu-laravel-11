@@ -8,7 +8,7 @@
                 @foreach ($posts as $post)
                     <article class="border border-slate-800 rounded-md w-[450px] h-[600px] shadow-xl overflow-hidden">
                         <div class="flex justify-between p-5">
-                            <a href="/posts/{{ $post['id'] }}" class="hover:underline text-blue-400">
+                            <a href="/posts/{{ $post['slug'] }}" class="hover:underline text-blue-400">
                                 <h2>{{$post['title']}}</h2>
                             </a>
                             <h4>{{ $post['author'] }}</h4>
@@ -22,7 +22,7 @@
                             <p class="p-16 font-serif text-lg tracking-tight text-justify">
                                 {{ Str::limit($post['body'], limit: 100) }}
                             </p>
-                            <a href="/posts/{{ $post['id'] }}" class="p-10 font-medium text-blue-500 hover:underline">Read
+                            <a href="/posts/{{ $post['slug'] }}" class="p-10 font-medium text-blue-500 hover:underline">Read
                                 More &raquo;</a>
                         </div>
                     </article>
