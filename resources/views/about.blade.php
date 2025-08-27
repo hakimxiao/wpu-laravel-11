@@ -5,5 +5,6 @@
     <a href="/">Home</a>
     <a href="/about">About</a>
     <h1>Halaman About</h1>
+    <h1>Owner : {{ $name }}</h1>
     <img src="img/strange.jpg" alt="strange" width="200">
 </x-layout>
