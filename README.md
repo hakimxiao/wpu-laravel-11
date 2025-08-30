@@ -13,6 +13,10 @@
 > Jika kita membuat element dengan nama layout maka diaakan di anggap sebagai layout
 - [Membuat layout with component method]: (php artisan make:component Layout)
 
+** MODEL
+>  
+- 
+
 
 ## Learning Laravel
 
