@@ -17,6 +17,10 @@
 >  
 - 
 
+** MIGRATION 
+> Adalah cara yang digunakan untuk mengenerate sebuah table didalam database yang digunakan.
+- Mengeksekusi semua file migrasi : php artisan migrate
+
 
 ## Learning Laravel
 
