@@ -11,7 +11,7 @@
                             <h2>{{$post['title']}}</h2>
                         </a>
                         <h4>{{ $post['author'] }}</h4>
-                        <p>20/12/2024</p>
+                        <p>{{ $post->created_at->format('j F Y') }}</p>
                     </div>
                     <div class="w-full h-full bg-slate-300">
                         <p class="p-16 font-serif text-lg tracking-tight text-justify">

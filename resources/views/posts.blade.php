@@ -12,7 +12,7 @@
                                 <h2>{{$post['title']}}</h2>
                             </a>
                             <h4>{{ $post['author'] }}</h4>
-                            <p>20/12/2024</p>
+                            <p>{{ $post->created_at->diffForHumans() }}</p>
                         </div>
                         <div class="w-full h-full bg-slate-300">
                             {{-- +++ * TIPS * +++
