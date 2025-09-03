@@ -4,7 +4,7 @@
     <section class="flex flex-col items-center justify-center">
         <h1 class="text-3xl font-semibold">Daily Arcticle</h1>
         <div>
-            <div class="flex items-center justify-between gap-10 m-6">
+            <div class="grid grid-cols-2 gap-2 m-6">
                 @foreach ($posts as $post)
                     <article class="border border-slate-800 rounded-md w-[450px] h-[600px] shadow-xl overflow-hidden">
                         <div class="flex justify-between p-5">

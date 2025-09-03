@@ -29,11 +29,20 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
+
+            /**
+             * $a = $a ? $a : $b;   : Ternanry Operator
+             * $a = $a ?: $b;       : Elvis Operator
+             * $a ??= $b;           : Null Coalescing Operator
+              */
         ];
     }
 
     /**
      * Indicate that the model's email address should be unverified.
+     * Contoh Customisasi field dari factory :
+     *      Jadi kita bisa melakukkan kustomisasi terhadap field maupun merubah nilai default model
+     *      denbgan cara begini.
      */
     public function unverified(): static
     {
