@@ -21,6 +21,19 @@
 > Adalah cara yang digunakan untuk mengenerate sebuah table didalam database yang digunakan.
 - Mengeksekusi semua file migrasi : php artisan migrate
 
+** ELOQUENT RELATIONSHIP 
+> $table->foreignId('author_id')->constrained(
+            table: 'users',
+            indexName: 'posts_author_id'
+    );
+
+- PROMP UNTUK MEMBUAT FACTORY YANG DIMANA MENERAPKAN one to many || 
+- App\Models\Post::factory(20)->recycle(User::factory(5)->create())->create();
+- * user nya hanya 5 dan post nya 20 maka 20 post akan disesuaikan ke 5 user
+
+
+
+
 
 ## Learning Laravel
 
