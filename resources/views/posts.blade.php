@@ -4,14 +4,14 @@
     <section class="flex flex-col items-center justify-center">
         <h1 class="text-3xl font-semibold">Daily Arcticle</h1>
         <div>
-            <div class="grid grid-cols-2 gap-2 m-6">
+            <div class="grid grid-cols-3 gap-2 m-1">
                 @foreach ($posts as $post)
-                    <article class="border border-slate-800 rounded-md w-[450px] h-[600px] shadow-xl overflow-hidden">
-                        <div class="flex justify-between p-5">
-                            <a href="/posts/{{ $post['slug'] }}" class="hover:underline text-blue-400">
-                                <h2>{{$post['title']}}</h2>
+                    <article class="border border-slate-800 rounded-md w-[400px] h-[300px] shadow-xl overflow-hidden">
+                        <div class="flex justify-between p-2 text-sm">
+                            <a href="/authors/{{ $post->author->id }}" class="hover:underline text-blue-400">
+                                <h2> {{ $post->author->name }}</h2>
                             </a>
-                            <h4>{{ $post['author'] }}</h4>
+                            <h4>{{$post['title']}}</h4>
                             <p>{{ $post->created_at->diffForHumans() }}</p>
                         </div>
                         <div class="w-full h-full bg-slate-300">
