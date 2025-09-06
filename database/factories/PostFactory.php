@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Category;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
@@ -22,6 +23,7 @@ class PostFactory extends Factory
             //
             'title' => fake()->sentence(),
             'author_id' => User::factory(),
+            'category_id' => Category::factory(),
             // Str:slug : adalah method laravel yang digunakan untuk memfilter sebuah text menjadi slug (menghilangkan spasi dll)
             'slug' => Str::slug(fake()->sentence()),
             'body' => fake()->text()

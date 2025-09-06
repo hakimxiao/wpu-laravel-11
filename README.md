@@ -32,6 +32,10 @@
 - * user nya hanya 5 dan post nya 20 maka 20 post akan disesuaikan ke 5 user
 
 
+## JIKA MENEMUKAN MASALAH SAAT JALANAKAN FACTORY BERUNTUN SEPERTI INI MAKA JALANKAN 2 TAHAP INI : 
+App\Models\Post::factory(20)->recycle([Category::factory(3)->create(), User::factory(5)->create()])->create()
+- # composer dumpautoload
+- # php artisan optimize:clear
 
 
 

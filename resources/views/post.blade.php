@@ -5,7 +5,7 @@
         <h1 class="text-3xl font-semibold">Daily Arcticle</h1>
         <div>
             <div class="flex items-center justify-between gap-10 w-full">
-                <article class="border border-slate-800 rounded-md w-[450px] h-[600px] shadow-xl overflow-hidden">
+                <article class="border border-slate-800 rounded-md w-[450px] h-[500px] shadow-xl overflow-hidden">
                     <div class="flex justify-between p-5">
                         <a href="/authors/{{ $post->author->id }}" class="hover:underline text-blue-400">
                             <h2> {{ $post->author->name }}</h2>
@@ -17,8 +17,15 @@
                         <p class="p-16 font-serif text-lg tracking-tight text-justify">
                             {{ $post['body'] }}
                         </p>
-                        <a href="/posts" class="p-10 font-medium text-blue-500 hover:underline"> Back
-                            To Posts &laquo;</a>
+                        <div class="flex justify-between items-center mx-4">
+                            <a href="/posts" class="p-10 font-medium text-blue-500 hover:underline"> Back
+                                To Posts &laquo;</a>
+                            <a href="/categories/{{ $post->category->slug }}"
+                                class="hover:underline text-base text-gray-50">
+                                Category: {{ $post->category->name }}
+                            </a>
+
+                        </div>
                     </div>
             </div>
         </div>
