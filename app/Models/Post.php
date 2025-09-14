@@ -20,6 +20,9 @@ class Post extends Model
     //
     protected $fillable = ['title', 'author', 'slug', 'body'];
 
+    // ** Eager Loading 
+    protected $with = ['author', 'category'];
+
 
     // mehod untuk relation : dippanggil sebagai atribute bukan method
     public function author(): BelongsTo 
