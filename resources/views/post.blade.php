@@ -1,33 +1,41 @@
 <x-layout>
-    {{-- proses pengiriman dan pembacaan variabel dari route ke layout melalui route dan view --}}
     <x-slot:title>{{ $title }}</x-slot:title>
-    <section class="flex flex-col items-center justify-center">
-        <h1 class="text-3xl font-semibold">Daily Arcticle</h1>
-        <div>
-            <div class="flex items-center justify-between gap-10 w-full">
-                <article class="border border-slate-800 rounded-md w-[450px] h-[500px] shadow-xl overflow-hidden">
-                    <div class="flex justify-between p-5">
-                        <a href="/authors/{{ $post->author->id }}" class="hover:underline text-blue-400">
-                            <h2> {{ $post->author->name }}</h2>
-                        </a>
-                        <h4>{{$post['title']}}</h4>
-                        <p>{{ $post->created_at->format('j F Y') }}</p>
-                    </div>
-                    <div class="w-full h-full bg-slate-300">
-                        <p class="p-16 font-serif text-lg tracking-tight text-justify">
-                            {{ $post['body'] }}
-                        </p>
-                        <div class="flex justify-between items-center mx-4">
-                            <a href="/posts" class="p-10 font-medium text-blue-500 hover:underline"> Back
-                                To Posts &laquo;</a>
-                            <a href="/categories/{{ $post->category->slug }}"
-                                class="hover:underline text-base text-gray-50">
-                                Category: {{ $post->category->name }}
-                            </a>
 
+    <main class="pt-8 pb-16 lg:pt-16 lg:pb-24 bg-white dark:bg-gray-900 antialiased">
+        <div class="flex justify-between px-4 mx-auto max-w-screen-xl ">
+            <article
+                class="mx-auto w-full max-w-4xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
+                <header class="mb-4 lg:mb-6 not-format">
+                    <a href="/posts" class="font-medium text-xs text-blue-600 hover:underline">&laquo; Back to all
+                        Posts</a>
+                    <address class="flex items-center my-6 not-italic">
+                        <div class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
+                            <img class="mr-4 w-16 h-16 rounded-full"
+                                src="https://flowbite.com/docs/images/people/profile-picture-2.jpg"
+                                alt="{{ $post->author->name }}">
+                            <div>
+                                <a href="/authors/{{ $post->author->username }}" rel="author"
+                                    class="text-xl font-bold text-gray-900 dark:text-white">{{ $post->author->name }}</a>
+                                <p class="text-base text-gray-500 dark:text-gray-400 mb-1">
+                                    {{ $post->created_at->diffForHumans()}}
+                                </p>
+                                <a href="/categories/{{ $post->category->slug }}">
+                                    <span
+                                        class="bg-{{ $post->category->color }}-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
+                                        {{ $post->category->name }}
+                                    </span>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-            </div>
+                    </address>
+                    <h1
+                        class="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">
+                        {{ $post->title }}
+                    </h1>
+                </header>
+                <p>{{ $post->body }}</p>
+            </article>
         </div>
-    </section>
+    </main>
+
 </x-layout>
