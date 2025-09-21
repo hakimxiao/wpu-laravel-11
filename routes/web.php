@@ -18,9 +18,16 @@ Route::get('/about', function () {
 // # eager loading * solusi untuk masalah N + 1, dimana kita mendapatkan query beruntun padahal bisa satu query
 Route::get('/posts', function () {
     // $post = Post::with(['author', 'category'])->latest()->get();
-    
-    $posts = Post::latest()->get();
-    return view('posts', ['title' => 'Blog Page', 'posts' => $posts]);
+
+    $posts = Post::latest();
+
+    // @_Searching : Cara gampang :
+    if(request("search")) {
+        // % : adalah wildcard dimana di mana kita bisa mencari kata apapun dan tidak harus 100 % sama mau depan atau setengah dida di terima.
+        $posts->where("title", "like", "%" . request("search") . "%");
+    }
+
+    return view('posts', ['title' => 'Blog Page', 'posts' => $posts->get()]);
 });
 
 
