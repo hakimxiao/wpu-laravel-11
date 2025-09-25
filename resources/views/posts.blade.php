@@ -4,12 +4,15 @@
 
     <div class="py-4 px-4 mx-auto max-w-screen-xl lg:px-6">
         <div class="mx-auto max-w-screen-md sm:text-center">
-            {{--
-            Default value form :
-            1. Dia akan mengembalikan pada halaman yang sama jadi tidak perlu action jika ingin melempar dihalaman sama.
-            2. Dia default methodnya GET
-            --}}
             <form>
+                @if (request('category'))
+                    <input type="hidden" name="category" value="{{ request('category') }}">
+                @endif
+
+                @if (request('author'))
+                    <input type="hidden" name="author" value="{{ request('author') }}">
+                @endif
+
                 <div class="items-center mx-auto mb-3 space-y-4 max-w-screen-sm sm:flex sm:space-y-0">
                     <div class="relative w-full">
                         <label for="search"
@@ -41,11 +44,11 @@
 
     <div class="py-4 mx-auto max-w-screen-xl lg:py-8 lg:px-0">
         <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            @foreach ($posts as $post)
+            @forelse ($posts as $post)
                 <article
                     class="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                     <div class="flex justify-between items-center mb-5 text-gray-500">
-                        <a href="/categories/{{ $post->category->slug }}">
+                        <a href="/posts?category={{ $post->category->slug }}">
                             <span
                                 class="bg-{{ $post->category->color }}-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
                                 {{ $post->category->name }}
@@ -59,7 +62,7 @@
                     </a>
                     <p class="mb-5 font-light text-gray-500 dark:text-gray-400">{{ Str::limit($post->body, 150)  }}</p>
                     <div class="flex justify-between items-center">
-                        <a href="/authors/{{ $post->author->username }}">
+                        <a href="/posts?author={{ $post->author->username }}">
                             <div class="flex items-center space-x-3">
                                 <img class="w-7 h-7 rounded-full"
                                     src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
@@ -81,7 +84,12 @@
                         </a>
                     </div>
                 </article>
-            @endforeach
+            @empty
+                <div class="">
+                    <p class="font-semibold text-xl my-4">Article Not Found</p>
+                    <a href="/posts" class="block text-blue-600 hover:underline">&laquo; Back to all posts</a>
+                </div>
+            @endforelse
         </div>
     </div>
 </x-layout>
