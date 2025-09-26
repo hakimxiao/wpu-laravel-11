@@ -1,0 +1,18 @@
+- buke terminal ketikan ini :
+    php artisan vendor:publish
+
+- Pilih vendor yang mana mau di publish
+    \\ misal 5 untuk pagination 
+
+- maka nanti yang di vendor akan di pindahin dan di copy kedalam public agar kita bisa edit edit.
+    \\ disini anda akan melihat banyak pagination yang disediakan 
+        * bagaimana ganti nya ? 
+            1. ke app/providers/AppServiceProviders.php 
+            2. Di function boot temen temen tinggal tulis aja misal pagination 
+                 public function boot(): void
+                    {
+                        //
+                        Model::preventLazyLoading();
+                        Paginator::useBootstrapFive();
+                    }
+            3. Lihat semudah itu kita cukup vendor:publish -> pilih yang mana -> daftar kan di resources view vendor jika tidak mau pakai yang      disediakan -> ganti yang default dengan cara ke app/providers/AppServiceProviders di bagian boot deklarasikan.
